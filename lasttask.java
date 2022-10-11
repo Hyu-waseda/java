@@ -16,7 +16,10 @@ public class lasttask {
 		// 説明
 		System.out.println("闘技場へようこそ");
 		System.out.println("あなたの名前を教えてください");
-		String name = new java.util.Scanner(System.in).nextLine();
+		//スキャナー
+		java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+		String name = scanner.nextLine();
 		System.out.println("5回勝てば優勝です");
 		for (int i = 0; i < 5; i++) {
 			// 試合数とレベルを合わせる
@@ -46,7 +49,7 @@ public class lasttask {
 				System.out.println("コマンドを選択してください");
 				System.out.println("0.攻撃 1.防御 2.魔法");
 				// プレイヤーから入力を受け取る変数、入力
-				int comand_player = new java.util.Scanner(System.in).nextInt();
+				int comand_player = scanner.nextInt();
 				// 不可能な選択で最初のコマンド選択に戻す
 				if (comand_player != 0 && comand_player != 1 && comand_player != 2) {
 					System.out.println("");
@@ -95,7 +98,7 @@ public class lasttask {
 							System.out.println("0.ヒール 1.ファイヤ");
 						}
 						// 呪文の選択を入力
-						comand_magic = new java.util.Scanner(System.in).nextInt();
+						comand_magic = scanner.nextInt();
 						// 選択肢にない入力への対処(選択肢は必ず０か１であり、i <=４まではcomand_magic==0のみ）
 						if (comand_magic != 0 && comand_magic != 1) {
 							System.out.println("");
@@ -226,7 +229,7 @@ public class lasttask {
 				break;
 			}
 		}
-
+		scanner.close();
 		// 最後の表示
 		if (count_game == 5 && player[4][0] > 0) {
 			System.out.println("");
